@@ -1,0 +1,11 @@
+{
+  "enabled": false,
+  "publicLaunch": false,
+  "market": "SE",
+  "language": "sv-SE",
+  "currency": "SEK",
+  "timeZone": "Europe/Stockholm",
+  "ga4MeasurementId": "",
+  "googleAdsId": "",
+  "adsConversionLabel": ""
+}

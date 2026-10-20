@@ -1,0 +1,38 @@
+FINIS DEMO AUDIT — 14 October 2026
+
+Scope: design alignment and feature review. This is not production certification or a claim that every module has been exercised manually.
+
+SHARED EXPERIENCE
+Swedish app now follows the Spanish reference: cream background, light sidebar, blue controls, compact three-column transaction list, three summary cards, dedicated transaction detail pages, receipt action and booking preview. Primary navigation follows the same order; additional Swedish modules remain under More tools. Mobile lists hide account numbers; details expose them. Existing records and ledger behavior are preserved.
+
+WORKING IN BOTH LOCAL DEMOS
+- 20 fictional transactions and downloadable PNG receipts per market (Sweden also retains its three earlier demo bank rows).
+- OCR, suggested receipt matching, explicit confirmation and transaction drilldown.
+- Market-specific currency and limited suggested account selection: SEK/BAS in Sweden; EUR/PGC in Spain.
+- Basic invoice, expense and payroll demonstration screens.
+- Browser-local records and export/reset controls.
+
+FEATURE DIFFERENCES — NOT FULL PARITY
+Sweden has a balanced local journal, VAT amounts from receipts, IndexedDB storage for original documents, CSV bank import, PDF/text extraction, scanned PDF OCR, HEIC conversion, supplier bills, customer records, quotations, recurring invoice drafts, self-billing, projects/time, employee/payroll preparation, contracts, reports, limited SIE import/export, search and help.
+Spain currently has simpler invoice status simulation, expense categories, arithmetic payroll and gross-amount bank booking previews. Its bank receipt text is retained, but uploaded original images are session-only. Its bank booking does not update the separate invoice/expense overview or form a complete ledger. PDF/HEIC intake, reports/SIE and the broader Swedish business modules have not been implemented there.
+Sweden remains Swedish-language UI. Spain has Spanish/English switching. A complete English toggle for the Swedish suite is not yet implemented.
+The Swedish and Spanish capture/review forms differ to preserve their current accounting behavior. This release aligns the visual system and bank navigation; it is not an identical clone of every screen.
+
+UNFINISHED / NOT CONNECTED
+- Standalone invite-only email signup is not released. Unfinished Supabase work remains in the separate original Spain checkout.
+- Invitation delivery is not verified complete. No invitation was sent during this alignment.
+- No live bank feed, payment execution, company card integration, actual invoice email/e-invoice delivery, statutory payroll/tax filing or e-signatures.
+- No production document retention, cloud backup, full tenant permissions or validated full tax/accounting engine.
+- Sweden's BAS proposals remain a limited three-account example set; Spain's suggestions are also limited. These are not comprehensive automatic accounting engines.
+- No independent usability study, screen-reader audit or production security assessment has been completed.
+
+VALIDATION THIS RELEASE
+38 Swedish automated tests passed: balanced journal, duplicate prevention, approvals, invoice/receipt matching, all 20 Swedish fixture matches, VAT separation, imports, SIE limits and business-module regression checks.
+Browser checks: bank list -> dedicated detail -> back, existing matched receipt preserved, desktop visual review, 390px mobile detail/list, no horizontal overflow, account numbers hidden in mobile list, mobile menu open, primary overview/expenses/invoices/payroll/settings/capture screens render; no browser errors observed.
+The immediately preceding release verified real Swedish OCR -> saved receipt -> approval -> reconciliation -> reload, and checked ZIP integrity (20 PNGs plus CSV). Spain's preceding release verified real OCR -> match -> demo booking -> reload and receipt ZIP download. These flows were not all repeated after styling-only changes.
+
+RECOMMENDED NEXT MILESTONES
+1. Complete and verify invite-only signup, email delivery and persistent account workspaces.
+2. Bring Spain to the same ledger and document-storage foundation with jurisdiction-specific rules.
+3. Add full Swedish/English interface parity and synchronize capture/review UX.
+4. Test representative real-world receipt quality, ambiguous matches, accessibility and user journeys before any production claim.

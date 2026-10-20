@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 2,
+  "preparedDate": "2026-10-13",
+  "status": "inactive",
+  "executionEnabled": false,
+  "currency": "SEK",
+  "timeZone": "Europe/Stockholm",
+  "marketAssumption": "Sweden, explicitly requested",
+  "productionDomain": "",
+  "googleAnalytics": {
+    "accountCreated": false,
+    "accountId": "",
+    "propertyId": "",
+    "measurementId": "",
+    "consentMode": "basic",
+    "loadTagsBeforeConsent": false,
+    "authenticatedFinancialScreenTracking": false,
+    "defaultConsent": {
+      "analytics_storage": "denied",
+      "ad_storage": "denied",
+      "ad_user_data": "denied",
+      "ad_personalization": "denied"
+    },
+    "events": [
+      {
+        "name": "page_view",
+        "role": "diagnostic",
+        "trigger": "consented public route view"
+      },
+      {
+        "name": "view_pricing",
+        "role": "diagnostic",
+        "trigger": "pricing visibly opened"
+      },
+      {
+        "name": "select_plan",
+        "role": "diagnostic",
+        "trigger": "user selects offer"
+      },
+      {
+        "name": "form_start",
+        "role": "diagnostic",
+        "trigger": "first enquiry form interaction"
+      },
+      {
+        "name": "generate_lead",
+        "role": "secondary",
+        "trigger": "server confirms valid enquiry persisted once"
+      },
+      {
+        "name": "qualify_lead",
+        "role": "proposed_initial_primary",
+        "trigger": "CRM verifies fit and genuine prospect"
+      },
+      {
+        "name": "sign_up",
+        "role": "secondary",
+        "trigger": "actual account created"
+      },
+      {
+        "name": "trial_activated",
+        "role": "secondary",
+        "trigger": "documented onboarding milestone completed"
+      },
+      {
+        "name": "purchase",
+        "role": "proposed_future_primary",
+        "trigger": "service payment collected; transaction deduplicated"
+      },
+      {
+        "name": "refund",
+        "role": "revenue_correction",
+        "trigger": "confirmed refund against prior transaction"
+      }
+    ]
+  },
+  "googleAds": {
+    "accountCreated": false,
+    "customerId": "",
+    "campaignStatus": "Paused",
+    "automaticActivation": false,
+    "billingConfigured": false,
+    "proposedExperiment": {
+      "status": "NOT_APPROVED",
+      "mediaBudgetSek": 15000,
+      "budgetIsForecast": false,
+      "budgetIsMeasuredCompetitorSpend": false,
+      "convertedFromGbp": false,
+      "allocation": [
+        {
+          "campaign": "SE | Bokföring | Search",
+          "status": "Paused",
+          "share": 0.7,
+          "illustrativeAverageDailyBudgetSek": 345.39
+        },
+        {
+          "campaign": "SE | Bokslut | Search",
+          "status": "Paused",
+          "share": 0.3,
+          "illustrativeAverageDailyBudgetSek": 148.03
+        }
+      ],
+      "note": "Independent SEK planning scenario, not FX conversion. Average daily budgets are not hard daily caps."
+    },
+    "approvedSpendLimitSek": 0,
+    "targetCountry": "Sweden",
+    "targetLanguage": "Swedish",
+    "locationOption": "Presence"
+  },
+  "releaseGates": [
+    {
+      "id": "business_identity",
+      "status": "not_verified",
+      "passCriterion": "Legal owner, trading name, contact address and moms presentation documented and reviewed."
+    },
+    {
+      "id": "service_scope",
+      "status": "not_verified",
+      "passCriterion": "Signed service definition covers each offer, entity eligibility, transaction limits, trial, cancellation, exclusions and filing responsibility."
+    },
+    {
+      "id": "operational_readiness",
+      "status": "not_verified",
+      "passCriterion": "Responsible staff, required Swedish AML registration/supervision and Skatteverket ombud arrangements and maximum weekly onboarding capacity recorded."
+    },
+    {
+      "id": "production_security",
+      "status": "not_verified",
+      "passCriterion": "Tenant isolation, authentication, access control, encrypted transport, audit trail and restore test verified; no unresolved critical defects."
+    },
+    {
+      "id": "lead_capture",
+      "status": "not_verified",
+      "passCriterion": "Valid test enquiry persists once in production CRM; invalid enquiry does not create lead; responsible staff receives test."
+    },
+    {
+      "id": "production_urls",
+      "status": "not_verified",
+      "passCriterion": "All ad Final URLs replaced with verified owned HTTPS production pages; zero blank or placeholder Final URLs remain."
+    },
+    {
+      "id": "consent",
+      "status": "not_verified",
+      "passCriterion": "Fresh/rejected sessions make zero GA/Ads network requests; separate consent choices and withdrawal pass recorded tests."
+    },
+    {
+      "id": "measurement",
+      "status": "not_verified",
+      "passCriterion": "Correct GA4 property receives expected consented test events once; zero sensitive financial or contact data in payloads; duplicate primary conversion sources removed."
+    },
+    {
+      "id": "account_ownership",
+      "status": "not_verified",
+      "passCriterion": "Organisation-owned Analytics and Ads IDs, billing owner, SEK and Europe/Stockholm settings recorded with access roles."
+    },
+    {
+      "id": "unit_economics",
+      "status": "not_verified",
+      "passCriterion": "Actual delivery and onboarding cost estimate supports a numeric allowable CAC; Keyword Planner export dated and retained."
+    },
+    {
+      "id": "owner_budget_approval",
+      "status": "not_verified",
+      "passCriterion": "Owner approves specific media ceiling, test dates and offers; approval record retained and approvedSpendLimitSek updated."
+    },
+    {
+      "id": "ads_policy",
+      "status": "not_verified",
+      "passCriterion": "Google policy review completed for final ads and destinations; remains distinct from owner approval."
+    },
+    {
+      "id": "paused_import_review",
+      "status": "not_verified",
+      "passCriterion": "Ads Editor import has zero unresolved errors; every campaign, group, positive keyword and ad remains Paused until approved activation."
+    },
+    {
+      "id": "swedish_pricing",
+      "status": "not_verified",
+      "passCriterion": "Dated GBP/SEK observation and quote direction verified if conversion is used; final SEK prices, moms treatment, trial and scope reviewed. No GBP reference is presented as confirmed Swedish checkout price."
+    }
+  ],
+  "language": "sv-SE",
+  "pricing": {
+    "status": "TBD",
+    "monthlySek": null,
+    "yearEndSek": null,
+    "vatPresentation": "TBD",
+    "referenceOnly": {
+      "currency": "GBP",
+      "monthly": 200,
+      "freeMonths": 3,
+      "yearEnd": 600,
+      "indicativeMonthlySek": 2645,
+      "indicativeYearEndSek": 7935
+    },
+    "fxRateVerified": false,
+    "note": "The website illustrates SEK 2645/month and SEK 7935/year-end from the GBP 200/600 reference. These are proposals, not approved Swedish prices. Final SEK amounts and VAT remain unset."
+  }
+}

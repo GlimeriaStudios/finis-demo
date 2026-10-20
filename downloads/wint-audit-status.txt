@@ -1,0 +1,43 @@
+Finis — Wint reference audit and implementation status
+16 October 2026
+
+Reference inspected: https://wint.saltfish.ai/demobolaget.ab/
+The demo advertises limited functionality. No production access was obtained.
+
+Evidence: local screenshot archive with rendered UI snapshots and click-log.json.
+All 25 report-directory entries were visited. Forms and alternate states were
+inspected for invoices, customers, quotes, projects, time, leave, compensation,
+benefits, articles, groups, automations, documents and settings. Task detail
+screens include supplier bills, receipts, missing documents, payroll and closing.
+
+Implemented in this revision:
+- Searchable 25-entry report directory with six category filters.
+- Grouped navigation; Banktransaktioner remains the final sidebar option.
+- Dashboard task accordions grouped by type or priority, four quick actions,
+  support links, period filters, sales comparison and cost distribution graphs.
+- Monthly/accumulated sales with exact-value table and posted-ledger data.
+- Invoice editor with saved customer selection, multiple rows, date/VAT section
+  and live preview. Draft save uses integer amounts and atomic validation.
+- Supplier summary derived from local bills, group membership summary,
+  document lists, local register drafts and register CSV exports.
+
+Existing local accounting, receipt review, OCR suggestions, bank CSV matching,
+SIE import/export, quotes, recurring drafts, time/project billing and manual
+payroll preview remain available. These are demo workflows, not live services.
+
+Not complete / not production parity:
+- K10 calculations, filing, statutory annual accounts and tax automation.
+- Live bank access, payment initiation, cards, staffed advice and payroll payout.
+- Real invoice email/e-invoice delivery, document sharing and access roles.
+- Automatic execution of receipt rules; new automation records are drafts only.
+- Article reuse, mixed VAT by invoice row, foreign currency, all unit/category
+  options, periodisation, supplier auto-approval and all reminder settings.
+- Full asset/depreciation processing, paid contract templates and signing.
+- Every filter/sort permutation, every record, role and validation path.
+
+Validation: 47 automated tests pass. Browser checks verified all 25 report
+destinations render, report search and balance deep-link, task priority toggle,
+chart accumulation toggle, mobile navigation and a two-line invoice draft
+totalling 237.53 SEK. No real invoice, payment or support message was sent.
+
+This is an audited partial reconstruction, not an exact complete replica.

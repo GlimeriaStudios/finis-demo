@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /
+# Privat svensk prototyp. Granskad offentlig lansering krävs före indexering.

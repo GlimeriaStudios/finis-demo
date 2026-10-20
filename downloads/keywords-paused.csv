@@ -1,0 +1,10 @@
+﻿Campaign,Ad group,Ad group status,Keyword,Criterion Type,Status
+SE | Bokföring | Search,Löpande bokföring,Paused,bokföring online,Exact,Paused
+SE | Bokföring | Search,Löpande bokföring,Paused,löpande bokföring,Exact,Paused
+SE | Bokföring | Search,Löpande bokföring,Paused,bokföring aktiebolag,Phrase,Paused
+SE | Bokföring | Search,Löpande bokföring,Paused,bokföring fast pris,Phrase,Paused
+SE | Bokföring | Search,Byta byrå,Paused,byta redovisningsbyrå,Exact,Paused
+SE | Bokföring | Search,Byta byrå,Paused,digital redovisningsbyrå,Phrase,Paused
+SE | Bokslut | Search,Bokslut,Paused,hjälp med bokslut,Exact,Paused
+SE | Bokslut | Search,Bokslut,Paused,bokslut aktiebolag,Phrase,Paused
+SE | Bokslut | Search,Bokslut,Paused,bokslut fast pris,Phrase,Paused

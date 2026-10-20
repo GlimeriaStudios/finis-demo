@@ -1,0 +1,5 @@
+campaigns-paused.csv: 2 rows parsed; serving statuses paused; limits validated.
+keywords-paused.csv: 9 rows parsed; serving statuses paused; limits validated.
+ads-paused.csv: 3 rows parsed; serving statuses paused; limits validated.
+negative-keywords.csv: 12 rows parsed; serving statuses paused; limits validated.
+Sweden / sv-SE / SEK / Europe/Stockholm. 3 Final URLs blank. Approved spend SEK0. 14 unverified gates. SEK15000 scenario NOT_APPROVED. SEK prices TBD; no FX conversion.

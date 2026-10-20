@@ -1,0 +1,50 @@
+WINT REFERENCE AUDIT — 15 October 2026
+Status: partial discovery; not a completed full-product recreation.
+
+LIVE OBSERVATIONS
+1. Opened https://www.wint.se/ and rejected optional cookies.
+2. Followed the displayed demo signup destination:
+   https://www.wint.se/signup/testa-wints-granssnitt-sa-enkel-kan-din-bokforing-bli
+3. The page explicitly describes the demo as only a small part of the full service.
+4. Signup requires first name, last name, email, telephone, industry, company name,
+   payment methods and company form. Prepared the user-supplied details; did not
+   submit because company name remains unknown. No new account has been confirmed.
+5. Submission notice says it approves the privacy policy and personal-data processing.
+6. Tried the exact demo address visible in the user's screenshots:
+   https://wint.saltfish.ai/demobolaget
+   Browser refused navigation with ERR_BLOCKED_BY_CLIENT. Did not bypass that block.
+
+REFERENCE COVERAGE FROM USER SCREENSHOTS (not live-click verification)
+Dashboard: tasks grouped by type or urgency; shortcuts for documents, invoice, time,
+absence; sales comparisons; expense categories; operating profit; period toggles.
+Reports: searchable categories for income, costs, analysis, documents,
+administration and time reporting.
+Income: customer invoices, recurring invoices, projects.
+Costs: supplier invoices and receipts.
+Employees: wages, deviations, groups, payslips, benefits.
+Quick actions: document, salary deviation, extra salary, absence, reimbursement,
+question, invoice, quote, timesheet, contract.
+Documents: file selection; receipt/supplier invoice/self-invoice/other/SIE types;
+purchase date, category, gross amount, currency.
+Quotes: customer selection, lines, date/expiry, review and document preview.
+Time: previous/next week, month view, per-project daily hours, absence, total hours,
+expected compensation, billable/internal time, save and lock week.
+Compensation: bonus, mileage, commission and worked hours; employee, month, amount,
+description and comment.
+Absence: holiday, sickness, VAB, parental leave, ten days and unpaid leave; employee,
+date range and comment.
+Extra pay: employee, date, net/gross, extra salary/advance and approval.
+Help: FAQ suggestions, question field and contact options.
+
+NEXT LIVE AUDIT REQUIREMENTS
+For each reachable screen record entry click, route, layout regions, fields/defaults,
+validation, action result, cancellation/back behavior, persistence and mobile layout.
+Exercise create, edit, approve, reject, filter, search, export and empty/error states
+where actually available. Distinguish simulated demo state from real service behavior.
+Do not infer hidden accounting rules, API integrations or production payments from
+screenshots. Do not mark a page verified until its behavior was observed.
+
+FINIS CHANGE IN THIS PASS
+Existing #bank page is retained. Its sidebar link is renamed Banktransaktioner and
+moved after Fler verktyg as the final workspace navigation option.
+Full Wint workflow coverage and layout recreation remain pending live demo access.

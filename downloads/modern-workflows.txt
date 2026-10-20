@@ -1,0 +1,16 @@
+Finis workflow research — 13 October 2026
+
+Scope: targeted comparison of Dext, Expensify, Pleo and Bokio using official product/help pages; not a claim to have tested or ranked every accounting app.
+
+Dext: camera/file capture, document extraction then review. Design implication: source image and editable extracted fields on one screen. https://help.dext.com/en/articles/105670-how-to-scan-and-upload-documents-in-the-dext-mobile-app
+Expensify: scan as the primary entry point; incomplete expenses surface in the inbox. Design implication: prominent capture action and explicit review status. https://help.expensify.com/articles/new-expensify/reports-and-expenses/Track-Expenses
+Pleo: department/project tags plus review routing. Design implication: keep accounting category separate from organizational sector. https://help.pleo.io/en/support/solutions/articles/103000399369
+Bokio: mobile capture feeding bookkeeping's to-do queue. Design implication: save captured expense for review, do not silently post uncertain OCR values. https://www.bokio.se/hjalp/bokforing/att-bokfora-i-bokio/bokfor-en-utgift-kvitto/
+
+Implemented direction: capture -> review -> save; same-device source image storage; category + department; issued/sent-demo/paid distinction; quick invoice action; payroll preview with explicit manual tax and employer contribution inputs.
+
+Selfbilling rules consulted: prior agreement, approval procedures, Självfakturering label, separate sequential series per seller. Demo implements agreement gates, seller sequences and duplicate-job detection. Does not constitute a compliant invoice service or send documents. https://www.skatteverket.se/foretagochorganisationer/moms/saljavarorochtjanster/fakturering.4.58d555751259e4d66168000403.html
+
+OCR: self-hosted Tesseract.js 6.0.1 browser engine, English and Swedish language assets. No receipt sent to OCR SaaS. Accuracy varies; extracted merchant/date/total must be checked and VAT supplied/reviewed. JPEG/PNG/WebP only, <=10MB. Not production archival storage or backup. https://github.com/naptha/tesseract.js
+
+Deferred by latest request: actual staffed advice, live bank connections, payments and company cards. Advice UI stores local case drafts only. Payroll is a manual-input demo, without tax tables, AGI, pension/leave rules or payment initiation.

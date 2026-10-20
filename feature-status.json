@@ -1,0 +1,111 @@
+{
+  "updated": "2026-10-14",
+  "scope": "Browser-local demo with fictional data; not a production accounting service",
+  "implemented": [
+    {
+      "feature": "Priority task inbox",
+      "details": "Derived from expenses, bills, invoices, payroll changes, documents, year end and expiring contracts; search and priority/type grouping"
+    },
+    {
+      "feature": "Transactions",
+      "details": "Dedicated transaction detail pages, bank summary cards, 20 new Swedish receipt examples, CSV import, receipt proposals, explicit matching, no double posting"
+    },
+    {
+      "feature": "Unified document intake",
+      "details": "Multiple originals stored in IndexedDB; receipt, supplier bill, self-bill and other classifications; duplicate hashes; retryable per-file errors"
+    },
+    {
+      "feature": "Receipt extraction",
+      "details": "JPEG/PNG/WebP/BMP OCR, text PDF extraction, scanned PDF OCR, HEIC conversion; 10 MB/file, max 10 PDF pages; manual review; mixed VAT not supported"
+    },
+    {
+      "feature": "Supplier invoices",
+      "details": "PDF/image intake to payable draft; supplier/invoice-number duplicate check, VAT separation, approval, simulated payment, original download"
+    },
+    {
+      "feature": "Sales",
+      "details": "Customer records, quotes with multiple lines at one VAT rate, local acceptance, one-time conversion to invoice draft, printable HTML views, invoice issue/credit/recorded payment; no actual delivery"
+    },
+    {
+      "feature": "Recurring invoices",
+      "details": "Monthly draft schedules, month-end anchoring, pause/resume, explicit generation and occurrence deduplication; no background scheduler"
+    },
+    {
+      "feature": "Self billing",
+      "details": "Prior-agreement confirmation, approval routine, seller-specific numbering, generated JSON; no dispatch or automatic legal validation"
+    },
+    {
+      "feature": "Projects and time",
+      "details": "Project rates/budgets, billable/internal time, weekly totals, employee selection, week locking, time-to-invoice draft reservation; old time preserved"
+    },
+    {
+      "feature": "Payroll demo",
+      "details": "Employees, groups, absence types, compensation, extra gross/net/advance requests, benefits, local approval/rejection, manual payroll calculation, approved gross/benefit prefill, saved demo payslips"
+    },
+    {
+      "feature": "Contracts",
+      "details": "Dated scope/terms drafts, edits/version counter, text download and expiry tasks; no e-signing"
+    },
+    {
+      "feature": "Reports",
+      "details": "Date/account filters, category costs, monthly sales, period/cumulative result, profit/loss, balance sheet, trial balance and CSV export from the local ledger"
+    },
+    {
+      "feature": "Search and help",
+      "details": "Typed non-payroll entity search, contextual FAQ, local advice drafts; no staffed support"
+    },
+    {
+      "feature": "SIE",
+      "details": "SIE 1–4 preview/original preservation; limited SIE 4 transaction import and 4I export; PC8, mapping, duplicate/lock checks"
+    },
+    {
+      "feature": "Year end",
+      "details": "Checklist and journal/trial balance/JSON handover; no statutory accounts or filing"
+    }
+  ],
+  "deferred_external_services": [
+    "Live bank feeds",
+    "Actual payments",
+    "Company cards",
+    "Staffed accounting advice",
+    "Email/e-invoice delivery",
+    "AGI/tax/annual filing",
+    "Electronic signatures"
+  ],
+  "production_gaps": [
+    "Secure multi-tenant backend, authentication and permissions",
+    "Cloud backup and retention controls",
+    "Validated full Swedish BAS/VAT/payroll/annual-accounts engine",
+    "Full SIE balances/dimensions and SIE 5",
+    "Background job scheduler",
+    "Native mobile apps",
+    "Provider contracts and authorisations"
+  ],
+  "research": [
+    "https://www.bokio.se/hjalp/fakturera-kunder/aterkommande-faktura-avtalsfakturering/hur-skapar-jag-aterkommande-faktura/",
+    "https://support.fortnox.se/produkthjalp/personalattest/fortnox-personalattest",
+    "https://www.fortnox.se/produkt/fortnox-app",
+    "https://mozilla.github.io/pdf.js/examples/index.html",
+    "https://github.com/alexcorvi/heic2any"
+  ],
+  "design_handoff": "Finis — modern visual identity: SUITE-HANDOFF.txt and 17-screen independent design prototype",
+  "verification": {
+    "automated_tests": 38,
+    "browser_verified": [
+      "Quote creation, acceptance and invoice conversion",
+      "Employee creation and approved bonus to payroll prefill",
+      "Text PDF extraction",
+      "Image-only PDF OCR",
+      "HEIC decoding",
+      "Stored PDF to supplier-bill draft",
+      "Time entry and week lock",
+      "390px mobile dashboard and time view without document overflow"
+    ],
+    "not_claimed": [
+      "External accounting-system interoperability certification",
+      "All-device testing",
+      "Production security or compliance certification"
+    ]
+  },
+  "design_alignment": "Spanish demo visual reference applied to Swedish workspace; Swedish ledger preserved. Full functional parity and Swedish English toggle are unfinished. See downloads/demo-audit.txt."
+}

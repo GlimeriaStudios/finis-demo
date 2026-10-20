@@ -1,0 +1,70 @@
+LEDGERSPRING — SWEDISH COMPETITOR TO WINT
+Prepared 13 October 2026. Working brand; identity/domain/trademark not cleared.
+
+RUN: node build-sv.mjs ; node --test tests/ledger.test.mjs tests/site.test.mjs
+PREVIEW: node server.mjs then http://127.0.0.1:4173/
+No package installation required. Active build is build-sv.mjs.
+Do not use superseded UK build.mjs/review.mjs; archived research remains outside site.
+
+MARKET: Sweden, sv-SE, SEK, Europe/Stockholm. Small service businesses / aktiebolag.
+Original requested prices GBP200/month, three months free, GBP600 once.
+ECB reference 13 October: approximately SEK2644.99 and SEK7934.98.
+Displayed SEK2645/7935 are rounded PROPOSALS for review, not approved price changes.
+Final SEK price and VAT-inclusive/exclusive treatment remain undecided.
+The offer does not undercut every Swedish competitor; compare matched service scope.
+
+IMPLEMENTATION: dist/app.js is the UI; dist/ledger.js the integer-ore ledger;
+dist/localize-sv.js the Swedish display layer; dist/marketing.js the plan finder,
+calculator and consent-gated inactive Google code. build-sv.mjs generates site pages.
+Research and campaign source documents are in the parent research/marketing folders.
+
+DEMO: fictional localStorage data under ledgerspring-demo-sv-v1. No production login,
+tenant database, secure document store, actual provider or accounting service.
+Owner-private hosting protects this review audience, not a multi-user finance service.
+No passwords/provider keys are stored. No invoice emails, outreach or money transfers.
+Invoices support draft edits, posting, partial receipts and full unpaid reversals.
+Costs, payables, bank CSV/matching, time-to-draft, P&L/balance/trial balance and export
+work locally. VAT0/6/12/25 is illustrative, not a valid tax-treatment determination.
+No BAS/SIE compliance, K2/K3 final accounts, payroll, AGI, INK2, K10, BankID, bankgiro,
+secure receipt uploads or statutory filings are implemented. Audit history is local,
+not immutable. Period lock is a prototype control, not tamper-proof enforcement.
+
+GOOGLE: Analytics and Ads both stopped at Google sign-in. No account, property,
+stream, campaign or billing profile created. Owner login, identity and public domain
+are required. Use SEK/Europe-Stockholm and owner-controlled access. Review terms.
+All tracking defaults inactive; the build resets tracking-config.json to inactive.
+Consent gates optional website tags; financial workspace is never tracked.
+There is no submitted lead endpoint. Do not treat demo previews as real conversions.
+Swedish Ads CSVs have Paused status and blank destination URLs.
+SEK15000 is an independent planning scenario, NOT APPROVED. Approved spend SEK0.
+Google ad approval never substitutes for owner budget approval.
+
+SEO: Swedish static pages, unique metadata and canonical links are implemented.
+Private review is deliberately noindex/robots-disallowed; sitemap is empty.
+Before public launch, verify an owned domain, accurate business identity and service,
+remove internal review/download pages from public distribution, retain authenticated
+portal/noindex, regenerate public canonicals/sitemap and verify Search Console.
+No rankings, real customers, reviews or qualifications are fabricated.
+
+PRODUCTION GATES: actual legal identity and tax/VAT position; service terms; qualified
+delivery team; insurance assessment; applicable AML registration/supervision and due
+diligence; BAS/SIE migration; correct accounting/moms periods; K2/K3, AGI, INK2 and
+Bolagsverket responsibilities; authorised bank/payment partners; GDPR/IMY and PTS
+review; tenant isolation, MFA, least privilege, secure files, immutable journals,
+reversals, disaster recovery, professional accounting fixtures and security testing.
+BankID identification does not by itself establish company-signing authority.
+Pilot with a small qualified cohort before scaling customer acquisition.
+
+TESTS: accounting invariants, partial payment, full credit, draft editing, locked
+periods, duplicate imports/expenses, matching without duplicate postings, CSV safety,
+internal links/assets, metadata, noindex and inactive tracking. Mobile overflow was
+found and corrected. Browser core workflows were exercised; external integrations
+remain unconfigured and untested. Full details are in the review and research pages.
+
+HANDOVER AUDIT: Standalone checkout build verified without parent research/marketing folders. All 18 tests passed there. Invoice CSV exports now include credited and remaining amounts. The Swedish CSV import example matches the seeded bank payment.
+
+
+
+BRAND DECISION: User selected Finis on 2026-10-13. Swedish/EU trademark clearance remains unresolved. Historical Swedish FINIS registration 302040 (1993-06270), classes 9/42, is listed Avford, validity ended 2005-05-26. This is not a full clearance. No domain purchased. Preserve legacy localStorage keys to retain demo records.
+
+WORKFLOW UPDATE: browser receipt image upload (JPEG/PNG/WebP <=10MB), self-hosted Tesseract OCR, IndexedDB attachments, department/category review, invoice issued/delivery-demo/paid counters, selfbilling agreement + seller sequence + duplicate job controls, manual-input payroll preview and local advice drafts. No real document dispatch, professional advice, bank/payment/card or government integration. Receipt binaries are NOT included in the JSON export; use each receipt download. Browser storage can be cleared/lost. Payroll and selfbilling output are demonstration records only.

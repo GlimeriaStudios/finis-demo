@@ -1,10 +1,10 @@
 import {createInvoice,editInvoice,issueInvoice,audit,pennies} from './ledger.js';
 import {addCustomer,salesLines} from './suite-model.js';
+import {invoiceAmounts} from './sales-details.js';
 export function saveInvoiceLines(s,d,rawLines,invoiceId){
- const items=salesLines(rawLines),net=items.reduce((n,l)=>n+l.net,0);
- if(!Number.isSafeInteger(net)||net<=0||net>1e11)throw Error('Kontrollera fakturaradernas totalbelopp.');
- const i=saveInvoiceForm(s,{...d,description:items.map(l=>l.description).join('; '),net:(net/100).toFixed(2)},invoiceId);
- i.items=items;return i;
+ const amounts=invoiceAmounts(rawLines,Number(d.vatRate??25));
+ const i=saveInvoiceForm(s,{...d,vatRate:amounts.vatRate??0,description:amounts.items.map(l=>l.description).join('; '),net:(amounts.net/100).toFixed(2)},invoiceId);
+ Object.assign(i,amounts);return i;
 }
 export function customerDetails(d){const c={name:String(d.name||'').trim(),email:String(d.email||'').trim(),org:String(d.org||'').trim(),address:String(d.address||'').trim()};if(!c.name)throw Error('Ange kundens namn.');if(c.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.email))throw Error('Ange en giltig e-postadress.');return c;}
 export function updateCustomer(s,id,d){const c=s.customers.find(c=>c.id===id);if(!c)throw Error('Kunden saknas.');const details=customerDetails(d);if(s.customers.some(x=>x.id!==id&&x.name.toLowerCase()===details.name.toLowerCase()))throw Error('Kunden finns redan.');Object.assign(c,details);audit(s,'Kunduppgifter uppdaterade',id);return c;}

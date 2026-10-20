@@ -32,7 +32,7 @@ export function importSIE(s,data,mapping,hash){
  for(const e of data.entries){const key=JSON.stringify([data.org||data.company,e.date.slice(0,4),e.series,e.number]);if(!e.series||!e.number)throw Error('Demon kräver serie och nummer för dubblettkontroll.');if(keys.has(key))throw Error('Verifikationen finns redan: '+e.series+e.number);keys.add(key);fresh.push(key);post(draft,{id:'sie-'+hash+'-'+fresh.length,date:e.date,description:e.description,sie:{series:e.series,number:e.number,org:data.org,company:data.company},lines:e.lines.map(l=>{const account=mapping[l.account];if(!ACCOUNTS[account])throw Error('Välj kategori för konto '+l.account);return {account,basAccount:l.account,description:l.description,debit:Math.max(l.amount,0),credit:Math.max(-l.amount,0)};})});}
  (draft.sieImports??=[]).push({hash,keys:fresh,company:data.company,count:fresh.length,at:new Date().toISOString()});audit(draft,'SIE imported',hash);Object.assign(s,draft);
 }
-const quote=v=>'"'+String(v||'').replace(/[\x00-\x1f\x7f]/g,' ').replace(/"/finis-demo/g,'\\"')+'"';
+const quote=v=>'"'+String(v||'').replace(/[\x00-\x1f\x7f]/g,' ').replace(/"/g,'\\"')+'"';
 export function exportSIE(s,mapping){
  if(!s.journal.length)throw Error('Inga verifikationer.');
  const used=new Map();for(const j of s.journal)for(const l of j.lines){const n=l.basAccount||mapping[l.account];if(!/^\d{4}$/.test(n||''))throw Error('Ange BAS-konto för '+ACCOUNTS[l.account].name);used.set(n,used.get(n)||ACCOUNTS[l.account].name);}

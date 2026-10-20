@@ -5,7 +5,7 @@ export const camera='<svg viewBox="0 0 48 48" width="32" height="32" fill="none"
 const expense=(s,b)=>s.expenses.find(e=>e.pendingBankId===b.id||'expense-'+e.id===b.journalId);
 const status=(s,b)=>b.status==='Matched'?'Bokförd och avstämd':expense(s,b)?.receiptId?'Redo att granska':b.amount<0?'Kvitto saknas':'Matchning återstår';
 export function transactions(s){
- const id=location.hash.slice(1).split('/finis-demo/').slice(1).join('/finis-demo/');
+ const id=location.hash.slice(1).split('/').slice(1).join('/');
  const selected=s.bank.find(b=>encodeURIComponent(b.id)===id);
  const header=`<header class="app-heading"><div><p class="eyebrow">DEMOBANK · SVERIGE · SEK</p><h1>${selected?esc(selected.description):'Från banken till bokföringen.'}</h1><p>Fiktiva transaktioner. Ingen livebankanslutning.</p></div><a class="btn" href="/finis-demo/demo-receipts-se.zip" download>Ladda ner demokvitton</a></header>`;
  if(id&&!selected)return header+'<section class="panel panel-body"><h2>Transaktionen finns inte.</h2><a class="btn outline" href="#bank">Till alla transaktioner</a></section>';

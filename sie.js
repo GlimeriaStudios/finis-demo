@@ -36,8 +36,8 @@ const quote=v=>'"'+String(v||'').replace(/[\x00-\x1f\x7f]/g,' ').replace(/"/g,'\
 export function exportSIE(s,mapping){
  if(!s.journal.length)throw Error('Inga verifikationer.');
  const used=new Map();for(const j of s.journal)for(const l of j.lines){const n=l.basAccount||mapping[l.account];if(!/^\d{4}$/.test(n||''))throw Error('Ange BAS-konto för '+ACCOUNTS[l.account].name);used.set(n,used.get(n)||ACCOUNTS[l.account].name);}
- const lines=['#FLAGGA 0','#PROGRAM "Finis demo" "0.1"','#FORMAT PC8','#GEN '+new Date().toISOString().slice(0,10).replaceAll('-',''),'#SIETYP 4','#FNAMN '+quote(s.company.name),'#VALUTA SEK',...Array.from(used,([n,name])=>'#KONTO '+n+' '+quote(name))];
- s.journal.forEach((j,i)=>{lines.push('#VER "FINIS" '+(i+1)+' '+j.date.replaceAll('-','')+' '+quote(j.description),'{' );for(const l of j.lines)lines.push('#TRANS '+(l.basAccount||mapping[l.account])+' {} '+((l.debit-l.credit)/100).toFixed(2)+' "" '+quote(l.description||''));lines.push('}');});
+ const lines=['#FLAGGA 0','#PROGRAM "Talo demo" "0.1"','#FORMAT PC8','#GEN '+new Date().toISOString().slice(0,10).replaceAll('-',''),'#SIETYP 4','#FNAMN '+quote(s.company.name),'#VALUTA SEK',...Array.from(used,([n,name])=>'#KONTO '+n+' '+quote(name))];
+ s.journal.forEach((j,i)=>{lines.push('#VER "TALO" '+(i+1)+' '+j.date.replaceAll('-','')+' '+quote(j.description),'{' );for(const l of j.lines)lines.push('#TRANS '+(l.basAccount||mapping[l.account])+' {} '+((l.debit-l.credit)/100).toFixed(2)+' "" '+quote(l.description||''));lines.push('}');});
  return encodePC8(lines.join('\r\n')+'\r\n');
 }
 

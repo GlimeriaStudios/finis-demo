@@ -1,0 +1,20 @@
+/* Integration for screens added after the supplied Lab theme. */
+.workspace{--finis-blue:#B33508;--finis-ink:#111111}
+.workspace .btn:not(.outline){color:#111111}
+.workspace .btn:not(.outline):hover{color:#fff}
+.workspace .btn.light{background:#F2F1EC!important;color:#111111;border-color:#111111}
+.workspace .btn.light:hover{background:#D9D7CE!important;color:#111111}
+.workspace .report-metric{border-color:#D9D7CE;border-top-color:#FF4F12;border-radius:3px;box-shadow:0 0 0 1.5px #111111}
+.workspace .panel-head{border-color:#D9D7CE}
+.assistant-hero{background:linear-gradient(110deg,#ECEBE4,#fff 75%);border-color:#111111;border-radius:3px}
+.assistant-eyebrow,.report-kicker b{color:#B33508;font-family:"JetBrains Mono",monospace}
+.assistant-hero p:not(.assistant-eyebrow),.assistant-role p,.assistant-role small,.assistant-bank-row small,.report-kicker,.bank-filterbar p,.report-metric>span{color:#5E5C55}
+.assistant-orbit{border-color:#D9D7CE}
+.assistant-orbit span{color:#111111;background:#FF4F12;border-radius:3px}
+.assistant-orbit i,.assistant-role,.bank-filterbar,.workspace .report-toolbar{border-color:#111111;border-radius:3px}
+.assistant-bank-row,.workspace .panel-head{border-bottom-color:#D9D7CE}
+.workspace .report-table-wrap th{background:#F2F1EC;color:#5E5C55}
+.report-table-wrap tr:hover{background:#F2F1EC}
+#minutes-form textarea{border-color:#111111;border-radius:3px}
+.workspace .side-nav a.active:hover{background:#fff;color:#B33508}
+.btn.light{color:#111111}

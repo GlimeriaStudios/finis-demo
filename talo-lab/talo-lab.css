@@ -1,0 +1,249 @@
+/*
+  Talo · Lab — visuellt tema för finis-demo
+  -----------------------------------------
+  Läggs in EFTER befintliga stilmallar:
+    <link rel="stylesheet" href="/finis-demo/talo-lab/talo-lab.css">
+
+  Regel: temat ändrar bara färg, typsnitt, hörnradier, logotyp och fokusmarkering.
+  Inga egenskaper för layout (display, grid, flex, width, height, margin, padding,
+  position, gap, font-size, line-height) skrivs över. Strukturen är exakt som i dag.
+
+  Palett
+    Carbon   #111111  text, primärytor
+    Signal   #FF4F12  accent, markör, CTA på ljust (svart text på orange, 5.7:1)
+    Signal djup #B33508  orange text på ljust (5.4:1 på Bone)
+    Bone     #F2F1EC  bakgrund
+    Graphite #D9D7CE  linjer, inaktiva staplar
+    Muted    #5E5C55  sekundär text (5.9:1 på Bone)
+    Paper    #FFFFFF  kort
+*/
+@font-face{font-family:"Inter";src:url("fonts/inter-latin-400-normal.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Inter";src:url("fonts/inter-latin-500-normal.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Inter";src:url("fonts/inter-latin-600-normal.woff2") format("woff2");font-weight:550 650;font-display:swap}
+@font-face{font-family:"Inter";src:url("fonts/inter-latin-700-normal.woff2") format("woff2");font-weight:700 900;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url("fonts/jetbrains-mono-latin-400-normal.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url("fonts/jetbrains-mono-latin-500-normal.woff2") format("woff2");font-weight:500 600;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url("fonts/jetbrains-mono-latin-700-normal.woff2") format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url("fonts/jetbrains-mono-latin-800-normal.woff2") format("woff2");font-weight:750 900;font-display:swap}
+
+/* ---- remapped from styles.css ---- */
+:root{--ink:#111111;--text:#1E1E1C;--muted:#5E5C55;--paper:#F2F1EC;--lime:#FF4F12;--line:#D9D7CE;--white:#FFFFFF;--orange:#FF4F12;--red:#B3261E;--radius:4px}
+.review-strip{color:#F2F1EC}
+.btn{border-radius:3px}
+.btn:hover{background:#3A3A37}
+.btn.outline{border-color:#111111}
+.hero-visual{background:#ECEBE4;border-radius:4px}
+.mock-window{border-color:#E4E2D9;border-radius:3px;box-shadow:0 0 0 1.5px #111111}
+.pill{border-radius:4px;background:#F2F1EC;color:#5E5C55}
+.pill.amber{background:#FFE3D6;color:#9A3208}
+.pill.red{background:#FFE0DA}
+.mock-stat{background:#F2F1EC;border-radius:3px}
+.bar{background:#E4E2D9;border-radius:3px 3px 0 0}
+.bar:nth-last-child(2){background:#2A2A28}
+.floating-note{border-radius:3px;box-shadow:0 0 0 1.5px #111111}
+.section.soft{background:#F2F1EC}
+.card{border-radius:var(--radius)}
+.card .icon{background:#F2F1EC;border-radius:3px}
+.step:before{color:#8A877E;border-top-color:#D9D7CE}
+.price-card{border-radius:3px}
+.price-card li{border-top-color:#C9C6BC44}
+.footer{background:#F2F1EC}
+.article p,.article li{color:#5E5C55}
+.article a{color:#2A2A28}
+.notice{border-radius:3px;background:#F2F1EC;border-left-color:#8A877E}
+.notice.warning{background:#FFE3D6;border-color:#C9C6BC}
+input,select,textarea{border-color:#E4E2D9;border-radius:3px}
+.form-result{background:#F2F1EC;border-radius:3px}
+.cookie{box-shadow:0 0 0 1.5px #111111;border-radius:3px}
+th{background:#F2F1EC}
+.calcresult{border-radius:3px}
+.workspace{background:#F2F1EC}
+.sidebar{background:#111111;color:#E4E2D9}
+.company{background:#FFFFFF0a;border-color:#FFFFFF20;border-radius:3px}
+.side-label{color:#C9C6BC}
+.side-nav a{border-radius:3px}
+.side-nav a.active{background:#E4E2D9;color:#111111}
+.side-nav a:hover{background:#FFFFFF15}
+.side-nav a.active:hover{background:#E4E2D9}
+.app-top{background:#FFFFFFb0}
+.avatar{border-radius:50%;background:#E4E2D9}
+.stat{border-radius:3px}
+.panel{border-radius:3px}
+.task-icon{border-radius:3px;background:#F2F1EC}
+.info-grid .card{border-radius:3px}
+.modal{border-radius:3px;box-shadow:0 0 0 1.5px #111111}
+.modal::backdrop{background:#11111188}
+.toast{border-radius:3px}
+.onboarding-steps span{background:#F2F1EC;border-radius:3px}
+.amount-positive{color:#2A2A28}
+.amount-negative{color:#9A3208}
+.report-total td{background:#F2F1EC}
+.btn:not(.outline):not(.light){background:#111111;border-color:#111111;color:#FFFFFF}
+.btn:not(.outline):not(.light):hover{background:#3A3A37;border-color:#3A3A37}
+.btn:focus-visible,a:focus-visible{outline-color:#111111}
+.sidebar a:focus-visible{outline-color:#FFFFFF}
+.brand:focus-visible{border-radius:3px}
+.hero-visual{background:#ECEBE4}
+.mock-stat{background:#F2F1EC}
+.bar{background:#E4E2D9}
+.bar:nth-last-child(2){background:#111111}
+.soft{background:#F2F1EC}
+.sidebar{background:#111111;color:#F2F1EC}
+.side-nav a.active,.side-nav a.active:hover{background:#FF4F12;color:#111111}
+.drop-zone{border-color:#C9C6BC;background:#F2F1EC;border-radius:3px}
+#capture-error,#pay-error,#sb-error,#advice-error{color:#B3261E}
+.transaction-tools>span{color:#5E5C55}
+.transaction-card{background:#FFFFFF;border-color:#F2F1EC;border-radius:3px}
+.transaction-mark{background:#F2F1EC;border-radius:3px;color:#111111}
+.transaction-card small{color:#5E5C55}
+.transaction-detail{border-top-color:#F2F1EC;background:#F2F1EC}
+.receipt-slot{border-color:#E4E2D9;border-radius:3px}
+.scan-tile{color:#111111}
+.scan-tile span{color:#5E5C55}
+.proposal-box{background:#F2F1EC;border-color:#F2F1EC;border-radius:3px}
+.transaction-card:focus-within{outline-color:#111111}
+.eyebrow{color:#5E5C55}
+.app-content:has(.transaction-list){background:#F2F1EC}
+.scan-primary{background:#B33508;color:#FFFFFF;border-radius:3px}
+.scan-primary:hover{background:#111111}
+.transaction-card{border-color:#E4E2D9;border-radius:3px}
+.transaction-detail{background:#F2F1EC}
+.scan-tile{color:#B33508}
+.scan-primary:focus-visible,.scan-tile:focus-visible{outline-color:#111111}
+.workspace{background:#F2F1EC;color:#111111}
+.workspace .app-content{background:#F2F1EC}
+.workspace .panel{border-color:#E4E2D9;border-radius:3px}
+.workspace .btn{border-radius:3px}
+.workspace .btn:not(.outline){background:#B33508 !important;border-color:#B33508}
+.workspace .btn.outline{border-color:#8A877E;color:#111111}
+.workspace input,.workspace select,.workspace textarea{border-color:#8A877E;border-radius:3px}
+.suite-row{border-bottom-color:#F2F1EC}
+.suite-row small{color:#5E5C55}
+.suite-tag{border-radius:3px;background:#F2F1EC}
+.suite-metrics>div{border-color:#E4E2D9;border-radius:3px}
+.suite-metrics span{color:#5E5C55}
+.suite-faq{border-bottom-color:#E4E2D9}
+.suite-faq p{color:#5E5C55}
+.suite-empty p{color:#5E5C55}
+.quote-line{border-bottom-color:#E4E2D9}
+.document-preview{border-color:#E4E2D9}
+.expense-bar i{background:#B33508;border-radius:3px}
+#suite-error{color:#B3261E}
+.workspace :focus-visible{outline-color:#B33508}
+.nav-group summary{color:#F2F1EC}
+.suite-global-links a{color:#B33508}
+@media (max-width:900px){.mobile-menu-btn{color:#FFFFFF;border-color:#8A877E;border-radius:3px}}
+.workspace{--ink:#111111;--text:#111111;--muted:#5E5C55;--line:#E4E2D9;background:#F2F1EC}
+.workspace .sidebar{background:#F2F1EC}
+.workspace .side-nav a{border-radius:3px}
+.workspace .side-nav a.active{color:#B33508;box-shadow:0 0 0 1.5px #111111}
+.workspace .side-nav a:hover{background:#F2F1EC;color:#111111}
+.workspace .btn{background:#FF4F12;border-color:#FF4F12;border-radius:3px}
+.workspace .btn:hover{background:#B33508}
+.workspace .btn.outline{background:#F2F1EC;color:#B33508}
+.workspace .btn.outline:hover{background:#F2F1EC}
+.workspace .panel,.workspace .stat{border-radius:3px}
+.workspace input,.workspace select,.workspace textarea{border-color:#E4E2D9;border-radius:3px}
+.workspace .notice{background:#F2F1EC;border-radius:3px}
+.workspace .bank-list{border-radius:3px}
+.workspace .bank-row{border-bottom-color:#F2F1EC}
+.workspace .bank-row:hover{background:#F2F1EC}
+.workspace .bank-row small{color:#5E5C55}
+.workspace .back-link{color:#B33508}
+.workspace .bank-detail .scan-tile{border-color:#E4E2D9;border-radius:3px}
+.workspace :is(a,button,input,select,textarea,summary):focus-visible{outline-color:#FF4F12}
+.workspace .app-content{background:#F2F1EC}
+.workspace .sidebar .brand img{filter:none}
+.workspace .mobile-menu-btn{color:#111111;border-color:#E4E2D9}
+.workspace .btn:not(.outline){background:#FF4F12 !important;border-color:#FF4F12}
+.workspace .btn:not(.outline):hover{background:#B33508 !important}
+.report-metric{background:#FFFFFF;border-color:#F2F1EC;border-radius:3px}
+.report-metric>span,.report-metric small{color:#5E5C55}
+.report-metric p{color:#5E5C55}
+.report-pair i{border-radius:3px;background:#B33508}
+.report-pair i+i{background:#E4E2D9}
+.report-customize summary{color:#B33508}
+.report-table-wrap th,.report-table-wrap td{border-bottom-color:#F2F1EC}
+.report-account{color:#B33508}
+.report-account:focus-visible{outline-color:#B33508}
+.directory-categories button{border-radius:3px}
+.directory-categories .selected{box-shadow:0 0 0 1.5px #111111}
+.directory-card{background:#FFFFFF;border-color:#F2F1EC;border-radius:3px}
+.directory-card:hover{box-shadow:0 0 0 1.5px #111111}
+.directory-card>span{color:#5E5C55}
+.directory-card h2 b{color:#B33508}
+.directory-card p{color:#5E5C55}
+.dashboard-task-head h1 span{color:#B33508}
+.dashboard-task-head select{border-radius:3px;background:#F2F1EC}
+.dashboard-task-group{background:#FFFFFF;border-radius:3px}
+.dashboard-task-group summary span{color:#5E5C55}
+.dashboard-task-group a{border-top-color:#F2F1EC}
+.dashboard-task-group small{color:#5E5C55}
+.dashboard-shortcuts a,.dashboard-shortcuts button{border-color:#F2F1EC;border-radius:3px}
+.dashboard-shortcuts b{color:#B33508}
+.dashboard-support{border-left-color:#E4E2D9}
+.dashboard-support p,.dashboard-support small{color:#5E5C55}
+.dashboard-support a{background:#FFFFFF;border-radius:3px}
+.dashboard-support a span{color:#B33508}
+.dashboard-task-group summary:focus-visible,.directory-categories button:focus-visible{outline-color:#FF4F12}
+.cost-chart li i{border-radius:50%}
+.invoice-step{border-radius:3px}
+.invoice-live-preview{box-shadow:0 0 0 1.5px #111111}
+.invoice-paper-brand{color:#B33508}
+/* ---- remapped from receipt-batch.css ---- */
+.batch-eyebrow{color:#9A3208}
+.batch-panel input[type=checkbox]{accent-color:#B33508}
+.batch-card{border-color:#E4E2D9;border-radius:3px;background:#FFFFFF}
+.batch-check{background:#F2F1EC}
+.batch-open{color:#111111}
+.batch-open img,.batch-placeholder{background:#F2F1EC}
+.batch-placeholder{color:#5E5C55}
+.batch-card-state{color:#5E5C55}
+.batch-ocr-label{color:#5E5C55}
+.is-approved{border-color:#2A2A28}
+.is-approved .batch-check{background:#F2F1EC;color:#2A2A28}
+.batch-approval{background:#FFFFFF;border-color:#E4E2D9;border-radius:3px;box-shadow:0 0 0 1.5px #111111}
+.batch-empty{border-color:#E4E2D9;border-radius:3px;color:#5E5C55}
+.batch-dialog{border-color:#E4E2D9;border-radius:3px;color:#111111}
+.batch-dialog::backdrop{background:#11111170}
+.batch-full-image{background:#F2F1EC}
+.batch-density{background:#F2F1EC;border-radius:3px}
+.batch-density button{color:#5E5C55;border-radius:3px}
+.batch-density button[aria-pressed=true]{background:#FFFFFF;color:#B33508;box-shadow:0 0 0 1.5px #111111}
+.batch-scroll-hint{color:#5E5C55}
+.batch-banner{background:#F2F1EC;border-bottom-color:#E4E2D9}
+.batch-identity time{color:#5E5C55}
+.batch-check:has(input:focus-visible),.batch-open:focus-visible{outline-color:#B33508}
+.is-approved .batch-banner{background:#F2F1EC}
+.batch-card:has(.batch-check input:not(:checked)){border-color:#E4E2D9}
+/* ---- remapped from mobile-navigation.css ---- */
+@media (max-width:900px){.mobile-bottom-nav{background:#FFFFFF;border-top-color:#E4E2D9;box-shadow:0 0 0 1.5px #111111}.mobile-bottom-nav a,.mobile-bottom-nav button{border-radius:3px;color:#5E5C55}.mobile-bottom-nav .selected{background:#F2F1EC;color:#B33508}.mobile-bottom-nav a:focus-visible,.mobile-bottom-nav button:focus-visible{outline-color:#B33508}.mobile-more-dialog[open]{border-color:#E4E2D9;border-radius:3px 3px 0 0;color:#111111;background:#FFFFFF}.mobile-more-dialog::backdrop{background:#11111160}.mobile-more-dialog header button{border-color:#E4E2D9;border-radius:3px;color:#111111}.mobile-more-links a,.mobile-more-links summary{border-radius:3px;color:#111111}.mobile-more-links a.active{color:#B33508;background:#F2F1EC}.mobile-more-links>a:last-child{border-top-color:#E4E2D9}}
+.app-demo-label{color:#B3261E;background:#F2F1EC;border-color:#FFE0DA;border-radius:3px}
+/* ---- remapped from demo-films.css ---- */
+.film-section{background:#F2F1EC}
+.film-card{background:#FFFFFF;border-color:#E4E2D9;border-radius:3px}
+.film-card video{background:#F2F1EC}
+.scan-story{background:#FFFFFF;border-radius:3px}
+.scan-story img{border-radius:3px}
+.film-more{border-top-color:#E4E2D9}
+@media (max-width:700px){.scan-story img{background:#F2F1EC}}
+/* ---- Talo · Lab: typografi ---- */
+body,.workspace,button,input,select,textarea{font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif}
+.eyebrow,.side-label,.directory-card>span,.app-demo-label{font-family:"JetBrains Mono",ui-monospace,monospace;letter-spacing:.06em}
+.price,.app-balance,.workspace .stat strong,.calcresult strong{font-variant-numeric:tabular-nums}
+h1 em{font-family:inherit;font-style:normal;font-weight:inherit;background:linear-gradient(transparent 64%,#FF4F12 64%,#FF4F12 92%,transparent 92%)}
+
+/* ---- Talo · Lab: märke ---- */
+img.finis-wordmark{content:url("talo-wordmark.svg");filter:none!important;object-fit:contain}
+.workspace .sidebar .brand img{filter:none!important}
+
+/* ---- Talo · Lab: konturer (box-shadow påverkar inte layouten) ---- */
+.dashboard-task-group,.dashboard-shortcuts>a,.dashboard-shortcuts>button,.dashboard-support>a,.panel,.report-metric{box-shadow:0 0 0 1.5px #111111}
+.dashboard-shortcuts>a:hover,.dashboard-shortcuts>button:hover,.dashboard-support>a:hover{box-shadow:0 0 0 1.5px #111111,5px 5px 0 #111111}
+.workspace input,.workspace select,.workspace textarea{border-color:#111111}
+.workspace .sidebar a.active{box-shadow:0 0 0 1.5px #111111;background:#FFFFFF}
+
+/* ---- Talo · Lab: detaljer ---- */
+::selection{background:#FF4F12;color:#111111}
+:focus-visible{outline:2px solid #FF4F12!important;outline-offset:3px}
+a:hover{text-decoration-color:#FF4F12}

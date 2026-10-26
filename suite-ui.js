@@ -7,7 +7,7 @@ export const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;'
 const btn=(name,action,id='',secondary=false)=>`<button class="btn ${secondary?'outline':''}" data-suite="${action}" data-id="${esc(id)}">${name}</button>`;
 const link=(name,to)=>`<a class="btn outline" href="#${to}">${name}</a>`;
 const panel=(title,body)=>`<section class="panel"><div class="panel-head"><h2>${title}</h2></div><div class="panel-body">${body}</div></section>`;
-const heading=(title,subtitle,action='')=>`<header class="app-heading suite-heading"><div><p class="eyebrow">FINIS / ARBETSYTA</p><h1>${title}</h1><p>${subtitle}</p></div>${action}</header>`;
+const heading=(title,subtitle,action='')=>`<header class="app-heading suite-heading"><div><p class="eyebrow">TALO / ARBETSYTA</p><h1>${title}</h1><p>${subtitle}</p></div>${action}</header>`;
 const empty=label=>`<div class="suite-empty"><strong>${label}</strong><p>Skapa den första posten för att börja. Endast fiktiva uppgifter.</p></div>`;
 const field=(name,label,type='text',value='',attrs='required')=>`<label class="field">${label}<input name="${name}" type="${type}" value="${esc(value)}" ${attrs}></label>`;
 const select=(name,label,options)=>`<label class="field">${label}<select name="${name}" required>${options.map(([v,l])=>`<option value="${esc(v)}">${esc(l)}</option>`).join('')}</select></label>`;

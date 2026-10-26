@@ -1,4 +1,4 @@
-# Talo · Lab-tema för finis-demo
+# Talo · Lab Pistage-tema för finis-demo
 
 Ett rent ytlager. Det ändrar färger, typsnitt, hörnradier, konturer, fokusmarkering och logotyp, men ingen layout.
 

@@ -13,6 +13,7 @@ function wrapText(root) {
     acceptNode(n) {
       const p = n.parentElement;
       if (!p || SKIP.has(p.tagName) || p.closest('.t-amt,.t-meta,.t-counting,svg,[contenteditable],.sidebar,.app-top')) return NodeFilter.FILTER_REJECT;
+      AMOUNT.lastIndex = 0; META.lastIndex = 0;
       return (AMOUNT.test(n.nodeValue) || META.test(n.nodeValue)) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
     }
   });
@@ -55,27 +56,6 @@ function fingerprints(root) {
   }
 }
 
-function countUp(root) {
-  if (reduceMotion) return;
-  for (const el of root.querySelectorAll('.stat strong:not([data-counted]), .report-metric strong:not([data-counted])')) {
-    el.dataset.counted = '1';
-    const raw = el.textContent.trim();
-    const m = raw.match(/^([−-]?)([\d\s  ]+)(,\d+)?(.*)$/);
-    if (!m) continue;
-    const target = parseInt(m[2].replace(/\D/g, ''), 10);
-    if (!target || target > 10000000) continue;
-    const fmt = v => m[1] + Math.round(v).toLocaleString('sv-SE') + (m[3] || '') + (m[4] || '');
-    const start = performance.now(), dur = 700;
-    el.classList.add('t-counting');
-    const tick = now => {
-      const k = Math.min(1, (now - start) / dur), e = 1 - Math.pow(1 - k, 3);
-      el.textContent = fmt(target * e);
-      if (k < 1) requestAnimationFrame(tick); else { el.textContent = raw; el.classList.remove('t-counting'); }
-    };
-    requestAnimationFrame(tick);
-  }
-}
-
 // Talo-boten i hjälppanelen: tänker en stund (siffror i pannan), sedan lyssnar den.
 function makeBot(size = 40) {
   const bot = document.createElement('span');
@@ -85,17 +65,6 @@ function makeBot(size = 40) {
   bot.setAttribute('role', 'img');
   bot.setAttribute('aria-label', 'Talo');
   bot.innerHTML = '<span class="digits"><b>0</b><b>0</b><b>0</b><b>0</b></span><i class="l"></i><i class="r"></i>';
-  let t = 0;
-  const timer = setInterval(() => {
-    if (!bot.isConnected) return clearInterval(timer);
-    if (bot.dataset.mode !== 'thinking') return;
-    t++;
-    bot.querySelectorAll('.digits b').forEach((b, i) => {
-      b.textContent = Math.floor(Math.random() * 10);
-      b.classList.toggle('hot', i === t % 4);
-    });
-  }, 150);
-  bot.think = (ms = 2400) => { bot.dataset.mode = 'thinking'; setTimeout(() => { if (bot.isConnected) bot.dataset.mode = 'idle'; }, reduceMotion ? 0 : ms); };
   return bot;
 }
 
@@ -104,8 +73,6 @@ function placeBots(root) {
   if (h && !h.querySelector('.talobot')) {
     const bot = makeBot(40);
     h.prepend(bot);
-    bot.think(2600);
-    h.closest('.dashboard-support').addEventListener('mouseenter', () => bot.think(1500));
   }
 }
 
@@ -114,7 +81,7 @@ function apply() {
   const root = document.querySelector(ROOT_SEL);
   if (!root || busy) return;
   busy = true;
-  try { wrapText(root); statusLights(root); fingerprints(root); countUp(root); placeBots(root); }
+  try { wrapText(root); statusLights(root); fingerprints(root); placeBots(root); }
   finally { busy = false; }
 }
 

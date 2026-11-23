@@ -1,4 +1,4 @@
-import {readLanguage,writeLanguage,translateText,validLanguage} from './language.js?v=20261123c';
+import {readLanguage,writeLanguage,translateText,validLanguage} from './language.js?v=20261123install';
 let storage;try{storage=window.localStorage}catch{storage={getItem:()=>null,setItem:()=>{}}}
 const requested=new URLSearchParams(location.search).get('lang');
 let scope='device',language=validLanguage(requested)?requested:readLanguage(storage),running=false;
@@ -30,5 +30,5 @@ export function localizeDocument(){
 const observer=new MutationObserver(localizeDocument);
 const switcher=document.createElement('div');switcher.className='language-switcher';switcher.setAttribute('translate','no');switcher.innerHTML='<label for="site-language">Language / Språk</label><select id="site-language" aria-label="Language / Språk"><option value="sv" lang="sv">Svenska</option><option value="en" lang="en">English</option></select>';
 document.body.prepend(switcher);switcher.querySelector('select').value=language;switcher.addEventListener('change',event=>setLanguage(event.target.value));
-document.addEventListener('click',event=>{const link=event.target.closest('a[href]');if(!link||link.hasAttribute('download'))return;const url=new URL(link.href,location.href);if(url.origin===location.origin&&url.pathname.startsWith('/finis-demo/')&&!/\.[a-z0-9]+$/i.test(url.pathname)){url.searchParams.set('lang',language);link.href=url.href}},true);
+document.addEventListener('click',event=>{const link=event.target.closest('a[href]');if(!link||link.hasAttribute('download'))return;const url=new URL(link.href,location.href);if(link.hasAttribute('data-install-link')||(url.origin===location.origin&&url.pathname.startsWith('/finis-demo/')&&!/\.[a-z0-9]+$/i.test(url.pathname))){url.searchParams.set('lang',language);link.href=url.href}},true);
 localizeDocument();

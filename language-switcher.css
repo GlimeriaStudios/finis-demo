@@ -4,3 +4,5 @@
 body.workspace>.language-switcher{position:fixed;bottom:18px;right:96px;border-radius:30px;padding:4px 8px;box-shadow:0 2px 12px #30274f12}
 body.workspace>.language-switcher label{position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden}
 @media(max-width:700px){.language-switcher{padding:8px 20px}body.workspace>.language-switcher{bottom:calc(82px + env(safe-area-inset-bottom));right:16px}}
+
+.navlinks{flex-wrap:wrap;gap:16px}.nav{min-height:90px;height:auto;padding-top:16px;padding-bottom:16px}.workspace .suite-global-links{flex-wrap:wrap;gap:12px}.workspace .app-top{flex-wrap:wrap;height:auto;min-height:58px}.suite-global-links [data-install-link]{font-weight:600}

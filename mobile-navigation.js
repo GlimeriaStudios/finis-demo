@@ -11,7 +11,7 @@ export function mobileNavigation(current){
  const active=current==='financial'?'reports':current;
  const items=[['overview','Översikt'],['invoices','Fakturor'],['capture','Skanna'],['reports','Rapporter']];
  return `<nav class="mobile-bottom-nav" aria-label="Mobil huvudmeny">${items.map(([route,label])=>`<a href="#${route}" ${active===route?'class="selected" aria-current="page"':''}>${icon(route)}<span>${label}</span></a>`).join('')}<button type="button" id="mobile-more" class="${items.some(([r])=>r===active)?'':'selected'}" aria-label="Mer — alla menyval" aria-haspopup="dialog" aria-controls="mobile-more-dialog" aria-expanded="false">${icon('more')}<span>Mer</span></button></nav>
- <dialog class="mobile-more-dialog" id="mobile-more-dialog" aria-labelledby="mobile-more-title"><header><h2 id="mobile-more-title">Alla menyval</h2><button type="button" id="mobile-more-close" aria-label="Stäng menyn">Stäng</button></header><nav class="mobile-more-links" aria-label="Alla menyval">${workspaceNav(current)}</nav></dialog>`;
+ <dialog class="mobile-more-dialog" id="mobile-more-dialog" aria-labelledby="mobile-more-title"><header><h2 id="mobile-more-title">Alla menyval</h2><button type="button" id="mobile-more-close" aria-label="Stäng menyn">Stäng</button></header><nav class="mobile-more-links" aria-label="Alla menyval">${workspaceNav(current)}<a data-install-link href="https://clearbooks-launch-review.adam489451.chatgpt.site/install/" title="Inloggning kan krävas">Installera appen</a></nav></dialog>`;
 }
 export function bindMobileNavigation(){
  const button=document.getElementById('mobile-more'),dialog=document.getElementById('mobile-more-dialog');

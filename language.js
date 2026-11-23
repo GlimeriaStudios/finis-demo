@@ -1,4 +1,4 @@
-import {englishToSwedish,fragments,swedishToEnglish} from './language-catalog.js';
+import {englishToSwedish,fragments,swedishToEnglish} from './language-catalog.js?v=20261123install';
 import {websiteEnglish} from './website-english.js?v=20261123c';
 import {detailsEnglish} from './website-details-english.js';
 export const LANGUAGES=[['sv','Svenska'],['en','English']];

@@ -1,4 +1,4 @@
-import {readLanguage,writeLanguage,translateText,validLanguage} from './language.js?v=20261123b';
+import {readLanguage,writeLanguage,translateText,validLanguage} from './language.js?v=20261123c';
 let storage;try{storage=window.localStorage}catch{storage={getItem:()=>null,setItem:()=>{}}}
 const requested=new URLSearchParams(location.search).get('lang');
 let scope='device',language=validLanguage(requested)?requested:readLanguage(storage),running=false;

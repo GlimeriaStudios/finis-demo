@@ -1,13 +1,15 @@
 import {englishToSwedish,fragments,swedishToEnglish} from './language-catalog.js';
-import {websiteEnglish} from './website-english.js?v=20261123b';
+import {websiteEnglish} from './website-english.js?v=20261123c';
+import {detailsEnglish} from './website-details-english.js';
 export const LANGUAGES=[['sv','Svenska'],['en','English']];
 export const validLanguage=value=>LANGUAGES.some(([code])=>code===value);
 const inverse=Object.fromEntries(Object.entries(englishToSwedish).map(([en,sv])=>[sv,en]));
-const englishCatalog={...inverse,...swedishToEnglish,...websiteEnglish},reverseFragments=fragments.map(([en,sv])=>[sv,en]);
+const englishCatalog={...inverse,...swedishToEnglish,...websiteEnglish,...detailsEnglish},reverseFragments=fragments.map(([en,sv])=>[sv,en]);
 export function translateText(text,language){
  if(!validLanguage(language))return text;
  const trimmed=text.trim(),dict=language==='en'?englishCatalog:englishToSwedish;
  const exact=dict[trimmed];if(exact)return text.replace(trimmed,exact);
+ if(language==='en'&&trimmed.startsWith('LÖSNINGAR / ')){const label=trimmed.slice(12);const entry=Object.entries(englishCatalog).find(([sv])=>sv.toLocaleUpperCase('sv')===label);return text.replace(trimmed,'SOLUTIONS / '+(entry?entry[1].toUpperCase():label));}
  let result=text;
  const pairs=language==='en'?reverseFragments:fragments;
  for(const [from,to]of pairs)result=result.replaceAll(from,to);

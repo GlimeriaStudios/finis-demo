@@ -1,5 +1,5 @@
 import {englishToSwedish,fragments,swedishToEnglish} from './language-catalog.js';
-import {websiteEnglish} from './website-english.js';
+import {websiteEnglish} from './website-english.js?v=20261123b';
 export const LANGUAGES=[['sv','Svenska'],['en','English']];
 export const validLanguage=value=>LANGUAGES.some(([code])=>code===value);
 const inverse=Object.fromEntries(Object.entries(englishToSwedish).map(([en,sv])=>[sv,en]));

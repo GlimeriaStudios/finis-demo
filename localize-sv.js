@@ -1,4 +1,4 @@
-import {readLanguage,writeLanguage,translateText,validLanguage} from './language.js?v=20261123install';
+import {readLanguage,writeLanguage,translateText,validLanguage} from './language.js?v=20261124settings';
 let storage;try{storage=window.localStorage}catch{storage={getItem:()=>null,setItem:()=>{}}}
 const requested=new URLSearchParams(location.search).get('lang');
 let scope='device',language=validLanguage(requested)?requested:readLanguage(storage),running=false;
@@ -14,6 +14,7 @@ export function localizeDocument(){
  if(running||!document.body)return;running=true;observer?.disconnect();
  try{
   document.documentElement.lang=language==='en'?'en':'sv-SE';
+  document.querySelectorAll('#site-language,#app-language').forEach(select=>{if(select.value!==language)select.value=language;});
   const title=document.title;if(!titleSource||title!==titleSource.last)titleSource={original:title,last:title};titleSource.last=titleSource.original.split(' | ').map(part=>translateText(part,language)).join(' | ');if(document.title!==titleSource.last)document.title=titleSource.last;
   const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let node;
   while(node=walker.nextNode()){

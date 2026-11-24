@@ -1,10 +1,11 @@
-import {englishToSwedish,fragments,swedishToEnglish} from './language-catalog.js?v=20261123install';
+import {englishToSwedish,fragments,swedishToEnglish} from './language-catalog.js?v=20261124settings';
 import {websiteEnglish} from './website-english.js?v=20261123c';
 import {detailsEnglish} from './website-details-english.js';
+import {appEnglish} from './app-english.js';
 export const LANGUAGES=[['sv','Svenska'],['en','English']];
 export const validLanguage=value=>LANGUAGES.some(([code])=>code===value);
 const inverse=Object.fromEntries(Object.entries(englishToSwedish).map(([en,sv])=>[sv,en]));
-const englishCatalog={...inverse,...swedishToEnglish,...websiteEnglish,...detailsEnglish},reverseFragments=fragments.map(([en,sv])=>[sv,en]);
+const englishCatalog={...inverse,...swedishToEnglish,...websiteEnglish,...detailsEnglish,...appEnglish},reverseFragments=fragments.map(([en,sv])=>[sv,en]);
 export function translateText(text,language){
  if(!validLanguage(language))return text;
  const trimmed=text.trim(),dict=language==='en'?englishCatalog:englishToSwedish;
@@ -14,6 +15,8 @@ export function translateText(text,language){
  const pairs=language==='en'?reverseFragments:fragments;
  for(const [from,to]of pairs)result=result.replaceAll(from,to);
  if(language==='en'){
+  if(/^\s*\/\s*/.test(result)){const label=result.trim().slice(1).trim();if(englishCatalog[label])return result.replace(label,englishCatalog[label]);}
+  result=result.replace(/^(\d+) st$/,'$1 items').replace(/^Försäljning · /,'Sales · ').replace(/^Per kalendermånad · (\d+) och (\d+)$/,'By calendar month · $1 and $2').replace(/ · aktuell period$/,' · current period').replace(/ · jämförelseperiod$/,' · comparison period').replace(/^Vald period /,'Selected period ').replace(/\. Kreditposter ingår i kategorins nettobelopp\.$/,'. Credits are included in the category net amount.');
   result=result.replace(/^Arbetsyta \/ (.+)/,(_,label)=>'Workspace / '+(swedishToEnglish[label]||inverse[label]||label))
    .replace(/^(\d+) öppna fakturor$/,'$1 open invoices').replace(/^(\d+) kontorader att matcha$/,'$1 statement items to match')
    .replace(/^Förra året /,'Previous year ').replace(/ % mot samma period$/,' % vs the same period')
